@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WorldGuess
 
-## Getting Started
+## Play Now
 
-First, run the development server:
+[Open WorldGuess](https://worldguess-navy.vercel.app)
+
+I built WorldGuess as a geography deduction game. You can play the world mode, where the computer tries to figure out your country, or switch to the US states mode and do the same thing with states instead.
+
+The goal is simple: keep answering with `yes`, `no`, or `idk` while the shortlist gets smaller and smaller. In the two-way mode, you can also question the computer back and race it to the answer.
+
+## What Is In The Game
+
+- World countries mode with easy, medium, and hard difficulty
+- US states mode
+- One-way mode where the computer only guesses your place
+- Two-way mode where both sides ask and guess
+- Built-in atlas panel and map reference
+- Post-match audit when the computer misses
+
+## Notes
+
+I tuned the game around geography, borders, regions, religions, organizations, coast access, and other classification clues so the computer can narrow countries in a more realistic way.
+
+If the computer misses, the audit system checks whether the problem came from the difficulty, from inconsistent answers, or from bad data.
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Then open `http://localhost:3000`.
