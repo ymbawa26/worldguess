@@ -15,6 +15,7 @@ export type PalestineCityName =
   | "Tulkarem"
   | "Khan Younis"
   | "Lod"
+  | "Ramla"
   | "Gaza"
   | "Rafah"
   | "Safad"
@@ -69,6 +70,7 @@ export type PalestineCityRecord = {
   deadSeaSide: boolean;
   samariaHeartland: boolean;
   southernmost: boolean;
+  earlyIslamicCapital?: boolean;
 };
 
 export type PalestineQuestion = {
@@ -531,6 +533,41 @@ const CITIES: PalestineCityRecord[] = [
     southernmost: false,
   },
   {
+    name: "Ramla",
+    aliases: ["Ramle", "Al-Ramla", "al Ramla"],
+    area: "Central Coast",
+    north: false,
+    south: false,
+    palestine48: true,
+    westBank: false,
+    gazaStrip: false,
+    jordanValley: false,
+    muslimSignificance: false,
+    christianSignificance: false,
+    closeToLebanon: false,
+    closeToEgypt: false,
+    mediterraneanCoast: false,
+    redSea: false,
+    majorPort: false,
+    galilee: false,
+    jerusalemHills: false,
+    centralHighlands: false,
+    southernHighlands: false,
+    northernWestBank: false,
+    centralWestBank: false,
+    greenLineSide: false,
+    northwesternWestBank: false,
+    gazaSouth: false,
+    egyptBorder: false,
+    naqab: false,
+    inland: true,
+    lakeTabariasArea: false,
+    deadSeaSide: false,
+    samariaHeartland: false,
+    southernmost: false,
+    earlyIslamicCapital: true,
+  },
+  {
     name: "Gaza",
     aliases: ["Gaza City", "Ghazzah"],
     area: "Gaza Strip",
@@ -955,6 +992,14 @@ const QUESTIONS: PalestineQuestion[] = [
   makeQuestion("geo:dead-sea-side", "Is it on the Dead Sea side of the Jordan Valley?", "Dead Sea side", "narrow", "water", (city) => city.deadSeaSide),
   makeQuestion("area:samaria", "Is it in the Samaria heartland?", "Samaria", "narrow", "region", (city) => city.samariaHeartland),
   makeQuestion("geo:southernmost", "Is it the southernmost city on this list?", "Southernmost", "narrow", "direction", (city) => city.southernmost),
+  makeQuestion(
+    "history:early-islamic-capital",
+    "Was it founded as an early Islamic administrative capital?",
+    "Early Islamic capital",
+    "narrow",
+    "history",
+    (city) => city.earlyIslamicCapital === true,
+  ),
 ];
 
 const OPENING_QUESTION_IDS = new Set([

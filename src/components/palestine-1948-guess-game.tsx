@@ -625,6 +625,7 @@ export default function Palestine1948GuessGame() {
                         selectedCity.closeToEgypt ? "Near Egypt" : null,
                         selectedCity.mediterraneanCoast ? "Mediterranean" : null,
                         selectedCity.redSea ? "Red Sea" : null,
+                        selectedCity.earlyIslamicCapital ? "Early Islamic capital" : null,
                       ]
                         .filter(Boolean)
                         .join(" • ") || "No special tags"
@@ -634,7 +635,7 @@ export default function Palestine1948GuessGame() {
             </div>
 
             <div className={styles.lookupList}>
-              {lookupCities.slice(0, 23).map((city) => (
+              {lookupCities.map((city) => (
                 <button
                   key={city.name}
                   type="button"
