@@ -1,13 +1,14 @@
 "use client";
 
-import { Globe2, Map } from "lucide-react";
+import { Globe2, Landmark, Map } from "lucide-react";
 import { useState } from "react";
 
 import styles from "@/components/geography-guess-hub.module.css";
+import Palestine1948GuessGame from "@/components/palestine-1948-guess-game";
 import USStateGuessGame from "@/components/us-state-guess-game";
 import WorldGuessGame from "@/components/world-guess-game";
 
-type GeographyMode = "world" | "states";
+type GeographyMode = "world" | "states" | "palestine1948";
 
 const MODE_COPY: Record<
   GeographyMode,
@@ -32,6 +33,13 @@ const MODE_COPY: Record<
       "Play a separate one-difficulty state mode where the computer narrows down one of the 50 US states.",
     icon: Map,
   },
+  palestine1948: {
+    eyebrow: "Cities",
+    title: "Palestine 1948",
+    detail:
+      "Play a separate city mode with a fixed historical roster and custom clues like Jordan Valley, Palestine 48, Lebanon, Egypt, and religious significance.",
+    icon: Landmark,
+  },
 };
 
 export default function GeographyGuessHub() {
@@ -43,11 +51,11 @@ export default function GeographyGuessHub() {
         <div className={styles.modeBar}>
           <div className={styles.copy}>
             <span className={styles.eyebrow}>Geography Game Modes</span>
-            <h2>Switch between world countries and a separate US states mode</h2>
+            <h2>Switch between world countries, US states, and Palestine 1948 cities</h2>
             <p>
-              Countries keeps the full original game. States is its own mode with
-              one fixed difficulty and the computer focused only on guessing your
-              state.
+              Countries keeps the full original game. States is a separate fixed
+              state roster. Palestine 1948 is its own city mode with custom
+              historical and geographic clue groups.
             </p>
           </div>
 
@@ -75,7 +83,13 @@ export default function GeographyGuessHub() {
         </div>
       </section>
 
-      {mode === "world" ? <WorldGuessGame /> : <USStateGuessGame />}
+      {mode === "world" ? (
+        <WorldGuessGame />
+      ) : mode === "states" ? (
+        <USStateGuessGame />
+      ) : (
+        <Palestine1948GuessGame />
+      )}
     </div>
   );
 }
