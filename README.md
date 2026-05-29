@@ -23,11 +23,3 @@ I tuned the game around geography, borders, regions, religions, organizations, c
 
 If the computer misses, the audit system checks whether the problem came from the difficulty, from inconsistent answers, or from bad data.
 
-## Run Locally
-
-```bash
-npm install
-npm run dev
-```
-
-Then open `http://localhost:3000`.
